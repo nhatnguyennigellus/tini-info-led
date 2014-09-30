@@ -1,0 +1,104 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {
+	height: 100%;
+
+}
+body {
+	background-color: #000;
+	font-family: "Arial Black";
+	font-weight: bold;
+	height: 100%;
+
+}
+
+table {
+	width: 95%;
+	height: 100%;
+	padding-top: 30px;
+}
+.info-title {
+	color:#CCFDFD;
+	font-size:30px;
+}
+
+.info-title 
+#tinidiem_earned, 
+#newest_signup,
+#tinidiem_spent,
+#tinidiem_earned
+{
+	padding-top: 60px;
+}
+.total-user {
+	color: #20C4F4;
+	font-size:170px;
+	line-height: 70%;
+}
+
+.signup-thisweek {
+	color: #61C853;
+	font-size: 95px;
+	line-height: 75%;
+}
+
+.username {
+	color: #EE5AA0;
+	font-size: 95px;
+	line-height: 100%;
+}
+
+.signup-on {
+	color: #00AEE6 ;
+	font-size: 30px;
+	line-height: 100%;
+}
+.signup-lastweek {
+	color: #A4CC38;
+	font-size: 95px;
+	line-height: 75%;
+}
+
+.tinidiem_spent {
+	color: #FF4541;
+	font-size: 95px;
+	line-height: 75%;
+}
+
+.tinidiem_earned {
+	color: #FFDD00;
+	font-size: 95px;
+	line-height: 75%;
+}
+
+.last-updated {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight:lighter;
+	color: #fff;
+	font-size: 30px;
+	text-align: right;
+/*	padding-right: 15px;
+	padding-top: 20px;
+	vertical-align: bottom
+	position : absolute;
+    bottom : 0;
+    height : 40px;
+    margin-top : 40px;*/
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
+
+.updating {
+	position: absolute;
+	/*vertical-align:middle;
+	position:fixed;*/
+    margin-left: 40%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:20px;
+	font-weight:lighter;
+	background-color: #EF413D;
+	color: #fff;
+	padding: 5px 10px 5px 10px;
+}
