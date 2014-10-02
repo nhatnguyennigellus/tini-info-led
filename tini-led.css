@@ -10,7 +10,8 @@ body {
 	font-family: "Arial Black";
 	font-weight: bold;
 	height: 100%;
-
+	
+	overflow: hidden;
 }
 
 table {
@@ -31,10 +32,24 @@ table {
 {
 	padding-top: 60px;
 }
+
+#countdown-title {
+	font-size:60px;
+	color:#CF0;
+	padding-top: 60px;
+}
 .total-user {
 	color: #20C4F4;
 	font-size:170px;
 	line-height: 70%;
+}
+
+#countdown-clock {
+	color: #20C4F4;
+	text-align:center;
+	font-size:220px;
+	line-height: 70%;
+	padding-top: 60px;
 }
 
 .signup-thisweek {
@@ -49,9 +64,16 @@ table {
 	line-height: 100%;
 }
 
+#due-date {
+	color: #EE5AA0;
+	font-size: 85px;
+	line-height: 70%;
+	padding-top: 60px;
+}
+
 .signup-on {
 	color: #00AEE6 ;
-	font-size: 30px;
+	font-size: 50px;
 	line-height: 100%;
 }
 .signup-lastweek {

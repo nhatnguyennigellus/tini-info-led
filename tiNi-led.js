@@ -81,3 +81,34 @@ function updateUI() {
 	}));
 }
 
+
+setInterval(countdownClockUpdate, 1000);
+
+function countdownClockUpdate () {
+	var dueDate = new Date(2014, 9, 4, 9, 0, 0).getTime() / 1000;
+	var currentDate = new Date().getTime() / 1000;
+	var totalRemainSec = new Date(dueDate - currentDate) ;
+	
+	
+	var d = parseInt(totalRemainSec / 86400);
+	var h = parseInt(totalRemainSec / 3600) % 24 + parseInt(d * 24);
+	var m = parseInt(totalRemainSec / 60 ) % 60;
+    var s = parseInt(totalRemainSec % 60, 10);
+	
+	if(parseInt(s) < 10)
+	{
+		s = "0" + s;
+	}
+	if(parseInt(m) < 10)
+	{
+		m = "0" + m;
+	}
+	if(parseInt(h) < 10)
+	{
+		h = "0" + h;
+	}
+//	var dispClock = currentdate.
+	document.getElementById('countdown-clock').innerHTML = h + ":" + m + ":" + s;
+	//document.getElementById('countdown-clock').innerHTML =  parseInt(totalRemainSec, 10);
+	
+}
