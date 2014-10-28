@@ -6,33 +6,50 @@ html {
 
 }
 body {
+	padding-left: 100px;
+	width: auto;
 	background-color: #000;
 	font-family: "Arial Black";
 	font-weight: bold;
 	height: 100%;
-	
 	overflow: hidden;
 }
 
 table {
 	width: 95%;
 	height: 100%;
-	padding-top: 30px;
+	padding-top: 0px;
 }
 .info-title {
 	color:#CCFDFD;
-	font-size:30px;
+	font-size:25px;
 }
 
-.info-title 
-#tinidiem_earned, 
-#newest_signup,
-#tinidiem_spent,
-#tinidiem_earned
+.info-title#newest_signup {
+	padding-top: 20px;
+}
+.info-title#signup_thisweek, #now_playing {
+	text-align:center;
+}
+
+.info-title#player_energy_earned,
+#total_energy
 {
-	padding-top: 60px;
+	font-size:20px;
+	padding-top: 35px;
+	text-align:center
 }
 
+.info-title#player_tinidiem_spent {
+	font-size:20px;
+	padding-top: 10px;
+	text-align: center
+}
+
+.info-title#player_tinidiem_earned {
+	font-size:20px;
+	text-align: center
+}
 #countdown-title {
 	font-size:60px;
 	color:#CF0;
@@ -40,8 +57,10 @@ table {
 }
 .total-user {
 	color: #20C4F4;
-	font-size:170px;
-	line-height: 70%;
+	font-size:145px;
+	line-height: 85%;
+	width:30%;
+	padding-left: 50px
 }
 
 #countdown-clock {
@@ -54,13 +73,14 @@ table {
 
 .signup-thisweek {
 	color: #61C853;
-	font-size: 95px;
+	font-size: 90px;
 	line-height: 75%;
+	text-align:center;
 }
 
 .username {
 	color: #EE5AA0;
-	font-size: 95px;
+	font-size: 55px;
 	line-height: 100%;
 }
 
@@ -73,40 +93,77 @@ table {
 
 .signup-on {
 	color: #00AEE6 ;
-	font-size: 50px;
+	font-size: 40px;
 	line-height: 100%;
 }
 .signup-lastweek {
 	color: #A4CC38;
-	font-size: 95px;
-	line-height: 75%;
+	font-size: 85px;
+	line-height: 85%;
 }
 
 .tinidiem_spent {
-	color: #FF4541;
-	font-size: 95px;
+	color: #EF413D;
+	font-size: 85px;
 	line-height: 75%;
+	text-align: center
 }
 
 .tinidiem_earned {
 	color: #FFDD00;
-	font-size: 95px;
+	font-size: 85px;
 	line-height: 75%;
+}
+
+.now_playing {
+	color: #622493;
+	font-size: 85px;
+	line-height: 85%;
+	text-align:center;
+}
+
+.user {
+	font-size: 35px;
+	line-height: 55%;
+	text-align:center;
+	color: #622493;
+	line-height: 85%;
+}
+
+.energy_earned {
+	color: #FEFEFE;
+	font-size: 75px;
+	line-height: 100%;
+	text-align:center
+}
+
+.player_energy_earned {
+	color: #F8A3F7;
+	font-size: 85px;
+	line-height: 100%;
+	text-align:center;
+}
+
+.player_tinidiem_spent {
+	color: #801515;
+	font-size: 85px;
+	line-height: 100%;
+		text-align: center
+}
+
+.player_tinidiem_earned {
+	color: #A5DA92;
+	font-size: 85px;
+	line-height: 100%;
+	text-align: center
 }
 
 .last-updated {
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight:lighter;
 	color: #fff;
-	font-size: 30px;
+	font-size: 25px;
 	text-align: right;
-/*	padding-right: 15px;
-	padding-top: 20px;
-	vertical-align: bottom
-	position : absolute;
-    bottom : 0;
-    height : 40px;
-    margin-top : 40px;*/
 	position: fixed;
 	bottom: 0;
 	right: 0;
@@ -114,8 +171,6 @@ table {
 
 .updating {
 	position: absolute;
-	/*vertical-align:middle;
-	position:fixed;*/
     margin-left: 40%;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size:20px;

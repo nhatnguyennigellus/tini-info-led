@@ -42,45 +42,65 @@ function notiUpdate() {
 	$('#updating').toggle();
 }*/
 
-setInterval(updateUI, 5000);
+window.onload = function () {
+	updateUI();
+}
+setInterval(updateUI, 30000);
 function updateUI() {
 	($.ajax({
-		url: 'http://192.168.12.18:5000/tinistats',
+		url: 'http://www.tiniplanet.com/api/statistics/realtime',
 		dataType: "json",
-		timeout: 30000,
+		timeout: 60000,
 		success: function (data) {
 			$("#updating").hide(); 
 			setTimeout(function() {     
 			   $("#updating").show(); 
-			},3000);
+			},20000);
 			//setInterval(function () {
-			var totalUser = data.tiniplanet_stats.total_users;
-			var signupLastWeek = data.tiniplanet_stats.signup_lastweek;
-			var signupThisWeek = data.tiniplanet_stats.signup_thisweek;
-			var username = data.tiniplanet_stats.latest_signup.username;
-			var signupOn = data.tiniplanet_stats.latest_signup.signup_on;
-			var tinidiemEarned = data.tiniplanet_stats.tinidiem_earned;
-			var tinidiemSpent = data.tiniplanet_stats.tinidiem_spent;
+			var totalUser = data.tiniplanet_stats.total.players;
+			var signupLastWeek = data.tiniplanet_stats.last_week.signup;
+			var signupThisWeek = data.tiniplanet_stats.this_week.signup;
+			var username = data.tiniplanet_stats.total.latest_signup.username;
+			var signupOn = data.tiniplanet_stats.total.latest_signup.signup_on;
+			var nowPlaying = data.tiniplanet_stats.total.online_players;
+			var energyEarn = data.tiniplanet_stats.total.energy_earn;
+			var tinidiemEarn = data.tiniplanet_stats.total.tinidiem_earned;
+			var tinidiemSpent = data.tiniplanet_stats.total.tinidiem_spent;
+			var playerEnergyEarn = data.tiniplanet_stats.total.players_earn_energy;
+			var playerTinidiemEarn = data.tiniplanet_stats.total.players_earn_tinidiem;
+			var playerTinidiemSpent = data.tiniplanet_stats.total.players_spend_tinidiem;
 			
-			
-	
-			$('#total-user').html(totalUser.toLocaleString());
-			$('#signup-lastweek').html(signupLastWeek.toLocaleString());
-			$('#signup-thisweek').html(signupThisWeek.toLocaleString());
+			$('#total-user').html(commaSeparateNumber(totalUser));
+			$('#signup-lastweek').html(commaSeparateNumber(signupLastWeek));
+			$('#signup-thisweek').html(commaSeparateNumber(signupThisWeek));
 			$('#username').html(username);
-			$('#signup-on').html(signupOn);
-			$('#tinidiem-earned').html(tinidiemEarned.toLocaleString());
-			$('#tinidiem-spent').html(tinidiemSpent.toLocaleString());
-			var currentdate = new Date().toString('ddd dd MMM yyyy HH:mm:ss'); 
+			$('#now-playing').html(commaSeparateNumber(nowPlaying) + ' <br/><div style="font-size: 45px; line-height: 85%; text-align:center; ">Users</div>');
+			$('#energy-earned').html(commaSeparateNumber(energyEarn));
+			$('#tinidiem-earned').html(commaSeparateNumber(tinidiemEarn));
+			$('#tinidiem-spent').html(commaSeparateNumber(Math.abs(tinidiemSpent)));
+			$('#player-energy-earned').html(commaSeparateNumber(playerEnergyEarn));
+			$('#player-tinidiem-earned').html(commaSeparateNumber(playerTinidiemEarn));
+			$('#player-tinidiem-spent').html(commaSeparateNumber(playerTinidiemSpent));
+			var currentDate = new Date().toString('ddd dd MMM yyyy HH:mm:ss'); 
 //			currentdate.toS;
 			
-			$('#last-updated').html('Last updated '+ currentdate);
+			$('#last-updated').html('Last updated '+ currentDate);
 			
-
+			var diff = Math.abs(new Date() - new Date(signupOn));
+			var m = Math.floor((diff/1000)/60);
+			
+			$('#signup-on').html(m + ' minutes ago' );
 		}
 	}));
 }
 
+function commaSeparateNumber(val){
+    while (/(\d+)(\d{3})/.test(val.toString())){
+      val = val.toString().replace(/(\d+)(\d{3})/, '$1'+'.'+'$2');
+    }
+    return val;
+  }
+/*
 
 setInterval(countdownClockUpdate, 1000);
 
@@ -111,4 +131,4 @@ function countdownClockUpdate () {
 	document.getElementById('countdown-clock').innerHTML = h + ":" + m + ":" + s;
 	//document.getElementById('countdown-clock').innerHTML =  parseInt(totalRemainSec, 10);
 	
-}
+}*/
